@@ -1,0 +1,52 @@
+# Robert Seeger
+# Aliases
+# To be sourced by .cshrc
+
+#alias which='type'
+alias pd='pushd -v'
+alias pop='popd -v'
+alias ls='ls -F'
+alias la='ls -AF'
+alias llm='ls -l \!* | more'
+
+alias more='less'
+alias cd..='cd ..'
+alias cls='clear'
+alias upzip='zip -run .o'
+alias pd='pushd -v'
+alias pop='popd -v'
+alias df='df -k'
+alias ct='cleartool'
+
+alias myserv='/dci/bin/nsd -t ${HOME}/alex/configdir/rseeger-dev.tcl ; tail -f /
+dci/servers/rseeger-dev/log/rseeger-dev.log'
+alias myservFg='/dci/bin/nsd -ft ${HOME}/alex/configdir/rseeger-dev.tcl'
+alias killmyserv='kill `cat /dci/servers/rseeger-dev/log/rseeger-dev.pid`'
+
+alias wsprserv='TCL_LIBRARY=/usr/local/lib/tcl8.4 /dci/bin/nsd -t /home/rseeger/
+cvs/wspr/server/wspr-dev.tcl ; tail -f /dci/servers/wspr-dev/log/wspr-dev.log'
+alias killwsprserv='kill `cat /dci/servers/wspr-dev/log/wspr-dev.pid`'
+
+
+alias top='(unset TOP ; export TOP ; top)'
+alias all='${TOP}/wspr/tcl/scripts/all.tcl'
+
+alias svn_diff='svn diff --diff-cmd /usr/bin/diff'
+
+if [ -e /dci/bin/tclsh ] ; then
+    alias tclload='/dci/bin/tclsh'
+fi
+
+case `hostname` in
+    local-dev04*)
+        alias ls='ls -F --color=auto'
+        alias la='ls -AF --color=auto'
+    ;;
+    sedev2*)
+        alias ls='ls -F'
+        alias la='ls -AF'
+    ;;
+esac
+
+# Alias for git interaction with $HOME files
+alias githome='/usr/bin/git --git-dir=$HOME/.homegit/ --work-tree=$HOME'

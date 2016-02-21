@@ -1,0 +1,7 @@
+function tcl () { 
+    echo "puts [eval $*]" | tclsh ; 
+}
+
+function settitle () {
+    echo -n "]2;$*"
+}
